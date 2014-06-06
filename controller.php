@@ -57,15 +57,15 @@ class YalcPackage extends Package {
 		
 		//options and prefs
 		$yalc_log_url = $url->getToolsURL('log_error', 'yalc');
-		$yalc_log_ajax_erros = "true";
+		$yalc_log_erros = "true";
 		$yalc_suppress_error = "false";
 		$yalc_write_token = "123";
 		
-		$script = '<script type="text/javascript">var YALC_LOG_URL="' . $yalc_log_url . '"; var YALC_LOG_AJAX_ERRORS = ' . $yalc_log_ajax_erros . '; var YALC_SUPPRESS_ERROR = ' . $yalc_suppress_error . ';</script>';
+		$script = '<script type="text/javascript">var DEFAULT_NOTIFIER_ENDPOINT="' . $yalc_log_url . '"; var LOG_ERROS = ' . $yalc_log_erros . '; var LOG_TOKEN = ' . $yalc_write_token . ';</script>';
 		
 		//client logger
 		$v->addHeaderItem( $script );
-		$v->addHeaderItem($html->javascript("yalc.js", "yalc"));
+		$v->addHeaderItem($html->javascript("yalc.min.js", "yalc"));
     }
 
     /**
